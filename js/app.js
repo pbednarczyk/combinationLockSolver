@@ -7,30 +7,87 @@
     	
     	this.addSolution = function(){
 
+    		// form
     		var xnumber = this.xnumber
     		var ynumber = this.ynumber
     		var znumber = this.znumber
 
+    		// another informations
     		var body = 40;
-    		var start = 'prawo';
+    		var start = true;
 
-    		
+    		// solution
+    		var solution = {};
 
-    		return this.solution = [{
-    				rotation: 3,
-           			way: 'prawo',
-            		number: 12
-    			},
-				{
-    				rotation: 1,
-           			way: 'lewo',
-            		number: 30
-    			},
-				{
-    				rotation: 2,
-           			way: 'prawo',
-            		number: 8
-    			}];
+    		//1
+    		var rotation = Math.floor(xnumber / body);
+    		var number = 0 + xnumber % body;
+    		if(number < 0){
+    			number += body;
+    		}
+
+
+    		var rWord = "";
+
+			switch(rotation) {
+			    case 1:
+			        rWord = "obrót";
+			        break;
+			    case 2:
+			    case 3:
+			    case 4:
+			        rWord = "obroty";
+			        break;
+			    default:
+			        rWord = "obrotów";
+			}
+
+ 			solution[0] = {"rotation": rotation, "way": rWord + " " + (start?"prawo":"lewo"), "number": number};
+
+ 			//2
+    		rotation = Math.floor(ynumber / body);
+			number = number - ynumber % body;
+    		if(number < 0){
+    			number += body;
+    		}
+			switch(rotation) {
+			    case 1:
+			        rWord = "obrót";
+			        break;
+			    case 2:
+			    case 3:
+			    case 4:
+			        rWord = "obroty";
+			        break;
+			    default:
+			        rWord = "obrotów";
+			}
+ 			
+ 			solution[1] = {"rotation": rotation, "way": rWord + " " + (start?"lewo":"prawo"), "number": number};
+
+ 			//3
+    		rotation = Math.floor(znumber / body);
+			number = number + znumber % body;
+    		if(number < 0){
+    			number += body;
+    		}
+			switch(rotation) {
+			    case 1:
+			        rWord = "obrót";
+			        break;
+			    case 2:
+			    case 3:
+			    case 4:
+			        rWord = "obroty";
+			        break;
+			    default:
+			        rWord = "obrotów";
+			}
+
+ 			solution[2] = {"rotation": rotation, "way": rWord + " " + (start?"prawo":"lewo"), "number": number};
+
+
+    		return this.solution = solution;
     	};
     })
 
