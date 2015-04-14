@@ -1,5 +1,19 @@
 (function(){
-	
+	function getRotationWord (rotation){
+		switch(rotation) {
+		    case 1:
+		        return "obrót";
+		        break;
+		    case 2:
+		    case 3:
+		    case 4:
+		        return "obroty";
+		        break;
+		    default:
+		        return "obrotów";
+		}
+	}
+
 	var app = angular.module('app', []);
 	
 	app.controller('LockedController', function(){
@@ -21,70 +35,27 @@
 
     		//1
     		var rotation = Math.floor(xnumber / body);
-    		var number = 0 + xnumber % body;
-    		if(number < 0){
-    			number += body;
-    		}
+    		var number = (0 + xnumber) % body;
+    		if(number < 0) number += body;
+    		var rWord = getRotationWord(rotation);
 
-
-    		var rWord = "";
-
-			switch(rotation) {
-			    case 1:
-			        rWord = "obrót";
-			        break;
-			    case 2:
-			    case 3:
-			    case 4:
-			        rWord = "obroty";
-			        break;
-			    default:
-			        rWord = "obrotów";
-			}
-
- 			solution[0] = {"rotation": rotation, "way": rWord + " " + (start?"prawo":"lewo"), "number": number};
+ 			solution[0] = {"rotation": rotation, "rWord": rWord, "way": (start?"prawo":"lewo"), "number": number};
 
  			//2
     		rotation = Math.floor(ynumber / body);
-			number = number - ynumber % body;
-    		if(number < 0){
-    			number += body;
-    		}
-			switch(rotation) {
-			    case 1:
-			        rWord = "obrót";
-			        break;
-			    case 2:
-			    case 3:
-			    case 4:
-			        rWord = "obroty";
-			        break;
-			    default:
-			        rWord = "obrotów";
-			}
+			number = (number - ynumber) % body;
+    		if(number < 0) number += body;
+    		var rWord = getRotationWord(rotation);
  			
- 			solution[1] = {"rotation": rotation, "way": rWord + " " + (start?"lewo":"prawo"), "number": number};
+ 			solution[1] = {"rotation": rotation, "rWord": rWord, "way": (start?"lewo":"prawo"), "number": number};
 
  			//3
     		rotation = Math.floor(znumber / body);
-			number = number + znumber % body;
-    		if(number < 0){
-    			number += body;
-    		}
-			switch(rotation) {
-			    case 1:
-			        rWord = "obrót";
-			        break;
-			    case 2:
-			    case 3:
-			    case 4:
-			        rWord = "obroty";
-			        break;
-			    default:
-			        rWord = "obrotów";
-			}
+			number = (number + znumber) % body;
+    		if(number < 0) number += body;
+			var rWord = getRotationWord(rotation);
 
- 			solution[2] = {"rotation": rotation, "way": rWord + " " + (start?"prawo":"lewo"), "number": number};
+ 			solution[2] = {"rotation": rotation, "rWord": rWord, "way": (start?"prawo":"lewo"), "number": number};
 
 
     		return this.solution = solution;
