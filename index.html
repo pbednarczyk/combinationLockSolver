@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<title>CombinationLock</title>
+<meta charset="utf-8" /> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+<link rel="stylesheet" type="text/css" href="css/bootstrap-responsive.min.css">
+<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+<link rel="stylesheet" type="text/css" href="css/main.css">
+<script src="js/angular.min.js"></script>
+<scrip src="js/bootstrap.min.js"></scrip>
+<script src="js/app.js"></script>
+</head>
+<body>
+	<div class="container">
+	<h2>Combination Lock !</h2>
+
+		<!--  Review Form -->
+					<form name="LockedForm" ng-controller="LockedController as lockedCtrl" ng-submit="LockedForm.$valid && lockedCtrl.addSolution()" novalidate>
+						
+						<!--  Live Preview -->
+						<blockquote >
+							<div ng-repeat="solution in lockedCtrl.solution" >
+							<strong>{{solution.rotation}}</strong> obroty w <i>{{solution.way}}</i> ... <strong>{{solution.number}}</strong>
+							<cite class="clearfix"></cite>
+							</div>												
+						</blockquote>
+
+
+						<!--  Review Form -->
+						<h4>Wprowadź liczby</h4>
+						<fieldset class="form-group">
+							<input type="number" ng-model="lockedCtrl.xnumber"  placeholder="Wartość X" title="X-Number" required/>
+						</fieldset>
+						<fieldset class="form-group">
+							<input type="number" ng-model="lockedCtrl.ynumber"  placeholder="Wartość Y" title="Y-Number" required/>
+						</fieldset>		
+						<fieldset class="form-group">
+							<input type="number"  ng-model="lockedCtrl.znumber"  placeholder="Wartość Z" title="Z-Number" required/>
+						</fieldset>												
+						
+						<fieldset class="form-group">
+							<input type="submit" class="btn btn-primary" value="Potwierdź dane" />
+						</fieldset>
+					</form>			
+
+    </div>
+</body>
+</html>
+
