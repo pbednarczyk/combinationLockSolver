@@ -32,9 +32,7 @@
     	this.addSolution = function(){
 
     		// form
-    		var xnumber = this.xnumber
-    		var ynumber = this.ynumber
-    		var znumber = this.znumber
+   			var numbers = this.nNumber;
 
     		// another informations
     		var body = 40;
@@ -43,9 +41,9 @@
     		// solution
     		var solution = {};
 
-    		solution[0] = getSolutionData(xnumber, 0, body, way);
-    		solution[1] = getSolutionData(ynumber, solution[0].number, body, !(solution[0].way));
-    		solution[2] = getSolutionData(znumber, solution[1].number, body, !(solution[1].way))
+    		for(var i in numbers){
+    			solution[i] = getSolutionData(numbers[i], ((i > 0)?solution[i-1].number:0), body, !((i > 0)?solution[i-1].way:0));
+    		}
 
     		return this.solution = solution;
     	};
