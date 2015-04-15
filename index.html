@@ -14,7 +14,8 @@
 </head>
 <body>
 	<div class="container">
-	<h2>Combination Lock !</h2>
+	<h2>Combination<br />
+	Lock !</h2>
 
 		<!--  Review Form -->
 					<form name="LockedForm" ng-controller="LockedController as lockedCtrl" ng-submit="LockedForm.$valid && lockedCtrl.addSolution()" novalidate>
@@ -31,13 +32,13 @@
 						<!--  Review Form -->
 						<h4>Wprowadź liczby</h4>
 						<fieldset class="form-group">
-							<input type="number" ng-model="lockedCtrl.xnumber"  placeholder="Wartość X" title="X-Number" required/>
+							<input type="tel" ng-model="lockedCtrl.xnumber"  placeholder="Wartość X" title="X-Number" required/>
 						</fieldset>
 						<fieldset class="form-group">
-							<input type="number" ng-model="lockedCtrl.ynumber"  placeholder="Wartość Y" title="Y-Number" required/>
+							<input type="tel" ng-model="lockedCtrl.ynumber"  placeholder="Wartość Y" title="Y-Number" required/>
 						</fieldset>		
 						<fieldset class="form-group">
-							<input type="number"  ng-model="lockedCtrl.znumber"  placeholder="Wartość Z" title="Z-Number" required/>
+							<input type="tel"  ng-model="lockedCtrl.znumber"  placeholder="Wartość Z" title="Z-Number" required/>
 						</fieldset>												
 						
 						<fieldset class="form-group">
