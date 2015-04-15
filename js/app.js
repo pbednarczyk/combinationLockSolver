@@ -17,7 +17,7 @@
 	function getSolutionData(nNumber, lastNumber, body, way){
 
 		    var rotation = Math.floor(nNumber / body);
-    		var number = (way?(lastNumber + nNumber):(lastNumber - nNumber)) % body;
+    		var number = (way?(lastNumber - nNumber):(lastNumber + nNumber)) % body;
     		if(number < 0) number += body;
     		var rWord = getRotationWord(rotation);
 
