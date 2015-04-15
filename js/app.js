@@ -42,7 +42,7 @@
     		var solution = {};
 
     		for(var i in numbers){
-    			solution[i] = getSolutionData(numbers[i], ((i > 0)?solution[i-1].number:0), body, !((i > 0)?solution[i-1].way:0));
+    			solution[i] = getSolutionData(numbers[i], ((i > 0)?solution[i-1].number:0), body, (i > 0)?!solution[i-1].way:way);
     		}
 
     		return this.solution = solution;
